@@ -41,7 +41,6 @@ def _find_page_section(path, sections):
     for section_id, section in sections.items():
         if path == section['url_path']:
             matching_section = section
-            matching_section['id'] = section_id
             matching_page = deepcopy(section)
             matching_page['title'] = 'Overview'
             break
@@ -50,7 +49,6 @@ def _find_page_section(path, sections):
 
             if page:
                 matching_section = section
-                matching_section['id'] = section_id
                 matching_page = page
                 break
 
@@ -67,7 +65,6 @@ def _common_context(path):
     # Get breadcrumb information and pass to template
     section, page = _find_page_section(path, settings.NAV_ITEMS)
     if section and page:
-        common_context['section_id'] = section.get('id')
         common_context['section_path'] = section.get('url_path')
         common_context['section_title'] = section.get('title')
         common_context['page_path'] = page.get('url_path')
