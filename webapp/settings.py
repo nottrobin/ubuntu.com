@@ -14,10 +14,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'no_secret')
 
-
 with open('navigation.yaml') as navigation_file:
     NAV_ITEMS = yaml.load(navigation_file.read())
-    MENU_ITEMS = [item for item in NAV_ITEMS if item.get('include_in_menu')]
+    MENU_SECTIONS = {}
+    for section_name, section in NAV_ITEMS.items():
+        if section.get('include_in_menu'):
+            MENU_SECTIONS[section_name] = section
 
 # See https://docs.djangoproject.com/en/dev/ref/contrib/
 INSTALLED_APPS = [

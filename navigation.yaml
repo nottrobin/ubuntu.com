@@ -1,4 +1,5 @@
-- title: Cloud
+cloud:
+  title: Cloud
   url_path: /cloud
   include_in_menu: True
 
@@ -25,7 +26,8 @@
     - title: Plans and pricing
       url_path: /cloud/plans-and-pricing
 
-- title: Server
+server:
+  title: Server
   url_path: /server
   include_in_menu: True
 
@@ -39,7 +41,8 @@
     - title: Server provisioning
       url_path: /server/maas
 
-- title: Containers
+containers:
+  title: Containers
   url_path: /containers
   include_in_menu: True
 
@@ -51,7 +54,8 @@
     - title: Docker Engine
       url_path: /containers/docker-ubuntu
 
-- title: Desktop
+desktop:
+  title: Desktop
   url_path: /desktop
   include_in_menu: True
 
@@ -73,11 +77,13 @@
     - title: Snappy
       url_path: /desktop/snappy
 
-- title: Core
+core:
+  title: Core
   url_path: /core
   include_in_menu: True
 
-- title: IoT
+iot:
+  title: IoT
   url_path: /internet-of-things
   include_in_menu: True
 
@@ -89,7 +95,8 @@
     - title: Gateways
       url_path: /internet-of-things/gateways
 
-- title: Support
+support:
+  title: Support
   url_path: /support
   include_in_menu: True
 
@@ -101,7 +108,8 @@
     - title: ESM
       url_path: /support/esm
 
-- title: Downloads
+downloads:
+  title: Downloads
   url_path: /download
   include_in_menu: True
 
@@ -137,7 +145,8 @@
     - title: Ubuntu flavours
       url_path: /download/ubuntu-flavours
 
-- title: About
+about:
+  title: About
   url_path: /about
 
   children:
@@ -168,10 +177,12 @@
     - title: Contact us
       url_path: /about/contact-us
 
-- title: Ubuntu release end of life
+end-of-life:
+  title: Ubuntu release end of life
   url_path: /info/release-end-of-life
 
-- title: Legal
+legal:
+  title: Legal
   url_path: /legal
 
   children:
