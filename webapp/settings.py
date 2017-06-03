@@ -8,18 +8,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-import yaml
 import os
+import yaml
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'no_secret')
-
-with open('navigation.yaml') as navigation_file:
-    NAV_ITEMS = yaml.load(navigation_file.read())
-    MENU_SECTIONS = {}
-    for section_name, section in NAV_ITEMS.items():
-        if section.get('include_in_menu'):
-            MENU_SECTIONS[section_name] = section
 
 # See https://docs.djangoproject.com/en/dev/ref/contrib/
 INSTALLED_APPS = [
@@ -66,6 +60,16 @@ STATICFILES_FINDERS = [
     'django_static_root_finder.finders.StaticRootFinder'
 ]
 
+# Read navigation.yaml
+with open('navigation.yaml') as navigation_file:
+    NAV_ITEMS = yaml.load(navigation_file.read())
+
+    # Build menu
+    MENU_SECTIONS = {}
+    for section_name, section in NAV_ITEMS.items():
+        if section.get('include_in_menu'):
+            MENU_SECTIONS[section_name] = section
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -78,6 +82,7 @@ TEMPLATES = [
             ],
             'context_processors': [
                 'django_asset_server_url.asset_server_url',
+                'webapp.context_processors.navigation',
             ],
         },
     },
