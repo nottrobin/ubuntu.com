@@ -3,11 +3,9 @@
 {% block title %}Contact us{% endblock %}
 {% block meta_description %}Fast, easy and quick to deploy, switching to Ubuntu has never been easier{% endblock %}
 
-{% block second_level_nav_items %}
-<div class="strip-inner-wrapper">
-    {% include "templates/_nav_breadcrumb.html" with section_title="Desktop" page_title="Contact us" %}
-</div>
-{% endblock second_level_nav_items %}
+{% block header %}
+  {% include 'templates/header.html' with section_path="/desktop" section_title="Desktop" page_path="/desktop/contact-us" page_title="Contact us" %}
+{% endblock %}
 
 {% block content %}
 <section class="row row-hero no-border no-margin-bottom no-padding-bottom strip-light">

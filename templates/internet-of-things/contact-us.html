@@ -1,9 +1,9 @@
 {% extends "internet-of-things/base_things-v1.html" %}
 {% block title %}Contact us | Ubuntu for the Internet of Things{% endblock %}
 
-{% block second_level_nav_items %}
-	{% include "templates/_nav_breadcrumb-v1.html" with section_title="IoT" page_title="Contact us"  %}
-{% endblock second_level_nav_items %}
+{% block header %}
+  {% include 'templates/header.html' with section_path="/internet-of-things" section_title="IoT" page_path="/internet-of-things/contact-us" page_title="Contact us" %}
+{% endblock %}
 
 {% block content %}
 <div class="p-strip is-deep">

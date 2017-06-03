@@ -1,9 +1,9 @@
 {% extends "core/base_core-v1.html" %}
 {% block title %}Contact us | Ubuntu Core{% endblock %}
 
-{% block second_level_nav_items %}
-  {% include "templates/_nav_breadcrumb-v1.html" with section_title="Core" page_title="Contact us"  %}
-{% endblock second_level_nav_items %}
+{% block header %}
+  {% include 'templates/header.html' with section_path="/core" section_title="Core" page_path="/core/contact-us" page_title="Contact us" %}
+{% endblock %}
 
 {% block content %}
   <div class="p-strip is-deep">
