@@ -7,9 +7,17 @@
         <ul class="p-footer__links">
           <li class="p-footer__item">
             <h2 class="p-footer__title">
-              <a class="p-link--soft" href="/cloud">Cloud</a>
+              <a class="p-link--soft" href="{{ menu_sections.cloud.url_path }}">Cloud</a>
             </h2>
-            {% include "cloud/_nav_secondary.html" %}
+            {# cloud second level nav #}
+            <ul class="second-level-nav">
+              <li><a href="{{ menu_sections.cloud.url_path }}">Overview</a></li>
+              {% if menu_sections.cloud.children %}
+                {% for child in menu_sections.cloud.children %}
+                  <li><a href="{{ child.url_path }}">{{ child.title }}</a></li>
+                {% endfor %}
+              {% endif %}
+            </ul>
           </li>
         </ul>
       </div>
@@ -17,41 +25,31 @@
         <ul class="p-footer__links">
           <li class="p-footer__item">
             <h2 class="p-footer__title">
-              <a class="p-link--soft" href="/server">Server</a>
+              <a class="p-link--soft" href="{{ menu_sections.server.url_path }}">Server</a>
             </h2>
-            {% include "server/_nav_secondary.html" %}
+            {# cloud server level nav #}
+            <ul class="second-level-nav">
+              <li><a href="{{ menu_sections.server.url_path }}">Overview</a></li>
+              {% if menu_sections.server.children %}
+                {% for child in menu_sections.server.children %}
+                  <li><a href="{{ child.url_path }}">{{ child.title }}</a></li>
+                {% endfor %}
+              {% endif %}
+            </ul>
           </li>
           <li class="p-footer__item">
             <h2 class="p-footer__title">
-              <a class="p-link--soft" href="/server">Containers</a>
+              <a class="p-link--soft" href="{{ menu_sections.containers.url_path }}">Containers</a>
             </h2>
-            {% include "containers/_nav_secondary.html" %}
-          </li>
-        </ul>
-      </div>
-      <div class="p-footer__nav-col col-2 u-no-margin--bottom">
-        <ul class="p-footer__links">
-          <li class="p-footer__item">
-            <h2 class="p-footer__title">
-              <a class="p-link--soft" href="/desktop">Desktop</a>
-            </h2>
-            {% include "desktop/_nav_secondary.html" %}
-          </li>
-        </ul>
-      </div>
-      <div class="p-footer__nav-col col-2 u-no-margin--bottom">
-        <ul class="p-footer__links">
-          <li class="p-footer__item">
-            <h2 class="p-footer__title">
-              <a class="p-link--soft" href="/core">Core</a>
-            </h2>
-            {% include "core/_nav_secondary.html" %}
-          </li>
-          <li class="p-footer__item">
-            <h2 class="p-footer__title">
-              <a class="p-link--soft" href="/internet-of-things">IoT</a>
-            </h2>
-            {% include "internet-of-things/_nav_secondary.html" %}
+            {# containers second level nav #}
+            <ul class="second-level-nav">
+              <li><a href="{{ menu_sections.containers.url_path }}">Overview</a></li>
+              {% if menu_sections.containers.children %}
+                {% for child in menu_sections.containers.children %}
+                  <li><a href="{{ child.url_path }}">{{ child.title }}</a></li>
+                {% endfor %}
+              {% endif %}
+            </ul>
           </li>
         </ul>
       </div>
@@ -59,9 +57,67 @@
         <ul class="p-footer__links">
           <li class="p-footer__item">
             <h2 class="p-footer__title">
-              <a class="p-link--soft" href="/support">Support</a>
+              <a class="p-link--soft" href="{{ menu_sections.desktop.url_path }}">Desktop</a>
             </h2>
-            {% include "support/_nav_secondary.html" %}
+            {# desktop second level nav #}
+            <ul class="second-level-nav">
+              <li><a href="{{ menu_sections.desktop.url_path }}">Overview</a></li>
+              {% if menu_sections.desktop.children %}
+                {% for child in menu_sections.desktop.children %}
+                  <li><a href="{{ child.url_path }}">{{ child.title }}</a></li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="p-footer__nav-col col-2 u-no-margin--bottom">
+        <ul class="p-footer__links">
+          <li class="p-footer__item">
+            <h2 class="p-footer__title">
+              <a class="p-link--soft" href="{{ menu_sections.core.url_path }}">Core</a>
+            </h2>
+            {# core second level nav #}
+            <ul class="second-level-nav">
+              <li><a href="{{ menu_sections.core.url_path }}">Overview</a></li>
+              {% if menu_sections.core.children %}
+                {% for child in menu_sections.core.children %}
+                  <li><a href="{{ child.url_path }}">{{ child.title }}</a></li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          </li>
+          <li class="p-footer__item">
+            <h2 class="p-footer__title">
+              <a class="p-link--soft" href="{{ menu_sections.iot.url_path }}">IoT</a>
+            </h2>
+            {# IoT second level nav #}
+            <ul class="second-level-nav">
+              <li><a href="{{ menu_sections.iot.url_path }}">Overview</a></li>
+              {% if menu_sections.iot.children %}
+                {% for child in menu_sections.iot.children %}
+                  <li><a href="{{ child.url_path }}">{{ child.title }}</a></li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="p-footer__nav-col col-2 u-no-margin--bottom">
+        <ul class="p-footer__links">
+          <li class="p-footer__item">
+            <h2 class="p-footer__title">
+              <a class="p-link--soft" href="{{ menu_sections.support.url_path }}">Support</a>
+            </h2>
+            {# support second level nav #}
+            <ul class="second-level-nav">
+              <li><a href="{{ menu_sections.support.url_path }}">Overview</a></li>
+              {% if menu_sections.support.children %}
+                {% for child in menu_sections.support.children %}
+                  <li><a href="{{ child.url_path }}">{{ child.title }}</a></li>
+                {% endfor %}
+              {% endif %}
+            </ul>
           </li>
         </ul>
       </div>
@@ -69,9 +125,17 @@
         <ul class="p-footer__links">
           <li class="p-footer__item">
             <h2 class="p-footer__title">
-              <a class="p-link--soft" href="/download">Downloads</a>
+              <a class="p-link--soft" href="{{ menu_sections.downloads.url_path }}">Downloads</a>
             </h2>
-            {% include "download/_nav_secondary.html" %}
+            {# download second level nav #}
+            <ul class="second-level-nav">
+              <li><a href="{{ menu_sections.downloads.url_path }}">Overview</a></li>
+              {% if menu_sections.downloads.children %}
+                {% for child in menu_sections.downloads.children %}
+                  <li><a href="{{ child.url_path }}">{{ child.title }}</a></li>
+                {% endfor %}
+              {% endif %}
+            </ul>
           </li>
         </ul>
       </div>
