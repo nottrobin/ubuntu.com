@@ -2,11 +2,9 @@
 
 {% block title %}Thank you | Support{% endblock %}
 
-{% block second_level_nav_items %}
-<div class="strip-inner-wrapper">
-	{% include "templates/_nav_breadcrumb.html" with section_title="Support" subsection_title="Contact us" page_title="Thank you"  %}
-</div>
-{% endblock second_level_nav_items %}
+{% block header %}
+  {% include 'templates/header.html' with section_path="/support" section_title="Support" page_path="/support/thank-you" page_title="Thank you" %}
+{% endblock %}
 
 {% block content %}
 {% include "shared/_thank_you.html" with thanks_context="contacting us about Ubuntu Advantage" %}

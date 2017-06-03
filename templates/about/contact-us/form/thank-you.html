@@ -2,6 +2,10 @@
 
 {% block title %}Thank you{% endblock %}
 
+{% block header %}
+  {% include 'templates/header.html' with section_path="/about" section_title="About" page_path="/about/thank-you" page_title="Thank you" %}
+{% endblock %}
+
 {% block content %}
 
 <div class="p-strip is-deep is-bordered">

@@ -6,9 +6,9 @@ Thanks for downloading Ubuntu Server
 {% endblock %}
 {% block extra_body_class %}download-thankyou{% endblock %}
 
-{% block second_level_nav_items %}
-{% include "templates/_nav_breadcrumb-v1.html" with section_title="Downloads" subsection_title="Server" page_title="Thank you"  %}
-{% endblock second_level_nav_items %}
+{% block header %}
+  {% include 'templates/header.html' with section_path="/download" section_title="Download" page_path="/download/thank-you" page_title="Thank you" %}
+{% endblock %}
 
 {% block content %}
 <noscript>

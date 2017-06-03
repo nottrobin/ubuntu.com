@@ -2,9 +2,9 @@
 
 {% block title %}Thank you | Ubuntu core{% endblock %}
 
-{% block second_level_nav_items %}
-  {% include "templates/_nav_breadcrumb-v1.html" with section_title="Core" subsection_title="Contact us" page_title="Thank you" %}
-{% endblock second_level_nav_items %}
+{% block header %}
+  {% include 'templates/header.html' with section_path="/core" section_title="Core" page_path="/core/thank-you" page_title="Thank you" %}
+{% endblock %}
 
 {% block content %}
 <div class="p-strip is-bordered is-deep">

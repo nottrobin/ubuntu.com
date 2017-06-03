@@ -2,11 +2,9 @@
 
 {% block title %}Thank you | Ubuntu for the Internet of Things{% endblock %}
 
-{% block second_level_nav_items %}
-<div class="strip-inner-wrapper">
-    {% include "templates/_nav_breadcrumb.html" with section_title="IoT" subsection_title="Contact us" page_title="Thank you" %}
-</div>
-{% endblock second_level_nav_items %}
+{% block header %}
+  {% include 'templates/header.html' with section_path="/about" section_title="About" page_path="/about/thank-you" page_title="Thank you" %}
+{% endblock %}
 
 {% block content %}
 <section class="row no-border equal-height strip-light">
