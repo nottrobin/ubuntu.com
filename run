@@ -12,7 +12,7 @@
 # $ sudo npm install -g yo generator-canonical-webteam
 # $ yo canonical-webteam:run
 
-set -euo pipefail
+set -exuo pipefail
 
 USAGE="How to use ./run v1.1.0
 ===
