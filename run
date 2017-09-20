@@ -106,10 +106,10 @@ network_name="${project}-net"
 
 # Grab HTTP_PROXY settings from the host
 http_proxy=""
-if [ -n "${HTTP_PROXY}" ]; then
+if [ -n "${HTTP_PROXY:-}" ]; then
     http_proxy="--env HTTP_PROXY=${HTTP_PROXY}"
 fi
-if [ -n "${HTTPS_PROXY}" ]; then
+if [ -n "${HTTPS_PROXY:-}" ]; then
     http_proxy="${http_proxy} --env HTTPS_PROXY=${HTTPS_PROXY}"
 fi
 
