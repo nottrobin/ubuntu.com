@@ -104,6 +104,12 @@ pip_container="${project}-db"
 db_volume="${project}-db"
 network_name="${project}-net"
 
+# Grab HTTP_PROXY settings from the host
+http_proxy=""
+if [ -n "${HTTP_PROXY}" ]; then
+    http_proxy="--env HTTP_PROXY=${HTTP_PROXY}"
+fi
+
 # Import environment settings
 if [ -f .env ]; then
     export $(cat .env | grep -v ^\# | xargs)
@@ -169,6 +175,7 @@ docker_run () {
         --name ${container_name}  `# Name the container` \
         --rm                      `# Remove the container once it's finished`  \
         ${env_file}               `# Pass environment variables into the container, if file exists`  \
+        ${http_proxy}             `# Include HTTP proxy if needed`  \
         --volume `pwd`:`pwd`      `# Mirror current directory inside container`  \
         --workdir `pwd`           `# Set current directory to the image's work directory`  \
         ${tty}                    `# Attach a pseudo-terminal, if relevant`  \
@@ -268,6 +275,7 @@ python_run () {
                 --name ${db_container}       `# Name the container`  \
                 --rm                         `# Remove the container once it's finished`  \
                 --volume "${db_volume}":/var/lib/postgresql/data  `# Store dependencies in a docker volume`  \
+                 ${http_proxy}               `# Include HTTP proxy if needed`  \
                 --network "${network_name}"  `# Use an isolated network`  \
                 --network-alias db           `# Call this container "db" on the network so it can be found`  \
                 --detach                     `# Run in the background` \
@@ -446,6 +454,7 @@ case $run_command in
                 ${tty} \
                 --volume `pwd`:`pwd` \
                 --workdir `pwd` \
+                ${http_proxy}             `# Include HTTP proxy if needed`  \
                 --name "${project}-flake8-test" \
                 ${python_image} flake8 --exclude '*env*,node_modules' || test_error=true
         fi
