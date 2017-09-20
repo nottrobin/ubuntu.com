@@ -109,6 +109,9 @@ http_proxy=""
 if [ -n "${HTTP_PROXY}" ]; then
     http_proxy="--env HTTP_PROXY=${HTTP_PROXY}"
 fi
+if [ -n "${HTTPS_PROXY}" ]; then
+    http_proxy="${http_proxy} --env HTTPS_PROXY=${HTTPS_PROXY}"
+fi
 
 # Import environment settings
 if [ -f .env ]; then
