@@ -496,7 +496,7 @@ case $run_command in
             if [ -n "${containers_using_volume}" ]; then docker rm --force ${containers_using_volume}; fi
         done
         echo "- Removing project volumes"
-        if [ -n "${project_volumes}" ]; then docker volume rm --force ${project_volumes}; fi
+        if [ -n "${project_volumes}" ]; then docker volume rm ${project_volumes}; fi
 
         echo "- Removing remaining project containers"
         project_containers="$(docker ps --all --quiet --filter name=${project})"
@@ -514,14 +514,14 @@ case $run_command in
         echo "Removing cache volume ${yarn_cache_volume}"
         containers_using_volume=$(docker ps --quiet --all --filter "volume=${yarn_cache_volume}")
         if [ -n "${containers_using_volume}" ]; then docker rm --force ${containers_using_volume}; fi
-        docker volume rm --force ${yarn_cache_volume}
+        docker volume rm ${yarn_cache_volume}
 
         if [ -f manage.py ]; then
             # Clean pip cache volume
             echo "Removing cache volume ${pip_cache_volume}"
             containers_using_volume=$(docker ps --quiet --all --filter "volume=${pip_cache_volume}")
             if [ -n "${containers_using_volume}" ]; then docker rm --force ${containers_using_volume}; fi
-            docker volume rm --force ${pip_cache_volume}
+            docker volume rm ${pip_cache_volume}
         fi
     ;;
     "python")
