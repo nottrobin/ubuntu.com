@@ -151,8 +151,14 @@ create_current_user () {
     gid=$(id -g)
 
     if ! docker volume inspect ${etc_volume} &> /dev/null; then
-        docker run --rm --volume ${etc_volume}:/etc ${image} bash -c "grep -P '${gid}:$' /etc/group &> /dev/null || groupadd -g ${gid} app-user"
-        docker run --rm --volume ${etc_volume}:/etc ${image} bash -c "grep -P 'x:${uid}:' /etc/passwd &> /dev/null || useradd -u ${uid} -g ${gid} app-user"
+        etc_run="docker run --rm --volume ${etc_volume}:/etc ${image}"
+        if ! ${etc_run} grep -P '${gid}:$' /etc/group &> /dev/null; then
+            ${etc_run} groupadd -g ${gid} app-user
+	fi
+
+	if ! ${etc_run} grep -P 'x:${uid}:' /etc/passwd &> /dev/null; then
+            ${etc_run} useradd -u ${uid} -g ${gid} app-user
+	fi
     fi
 }
 
