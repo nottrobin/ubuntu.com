@@ -236,6 +236,11 @@ node_install () {
         --user $(id -u):$(id -g)                                 `# Use the current user`  \
         --volume ${project}-node-etc:/etc                        `# Use etc with corresponding user added`  \
         --volume ${yarn_cache_volume}:/home/shared/.cache/yarn/  `# Bind yarn cache to volume` \
+        ${node_image} ls -l /etc/alternatives/cc                 `# Install yarn dependencies`
+    docker_run "${project}-yarn-install"  \
+        --user $(id -u):$(id -g)                                 `# Use the current user`  \
+        --volume ${project}-node-etc:/etc                        `# Use etc with corresponding user added`  \
+        --volume ${yarn_cache_volume}:/home/shared/.cache/yarn/  `# Bind yarn cache to volume` \
         ${node_image} yarn install                               `# Install yarn dependencies`
 }
 
