@@ -3,6 +3,7 @@ title: Canonical websites
 ---
 * My.new.website
 * [blog.ubuntu.com](https://blog.ubuntu.com)
+* [netplan.io](https://netplan.io)
 * [cdimages.ubuntu.com](http://cdimages.ubuntu.com)
 * [certification.ubuntu.com ](https://certification.ubuntu.com)
 * [cloud-images.ubuntu.com](https://cloud-images.ubuntu.com)
