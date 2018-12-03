@@ -1,6 +1,6 @@
 # www.ubuntu.com codebase
 
-[![Build Status](https://travis-ci.org/canonical-websites/www.ubuntu.com.svg?branch=master)](https://travis-ci.org/ubuntudesign/www.ubuntu.com)
+[![Build Status](https://travis-ci.org/canonical-websites/www.ubuntu.com.svg?branch=master)](https://travis-ci.org/ubuntudesign/www.ubuntu.com) ![VF](https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbadges%2Fshields%2Fmaster%2Fpackage.json&label=camp&query=$.dependencies.camp&colorB=blue)
 
 This is the codebase and content for [www.ubuntu.com](https://www.ubuntu.com), a simple databaseless informational website project based on [Django](https://www.djangoproject.com/).
 
